@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
 <title>FRA Atlas</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
@@ -18,9 +19,37 @@ padding:10px;
 margin:0;
 }
 
+/* Dropdown style */
+
+#stateFilter{
+margin:10px;
+padding:6px;
+font-size:14px;
+}
+
+/* Map */
+
 #map{
-height: calc(100vh - 50px);
+height: calc(100vh - 100px);
 width:100%;
+}
+
+/* Legend box */
+
+#legend{
+position:fixed;
+bottom:30px;
+left:20px;
+
+background:white;
+padding:10px;
+
+border-radius:8px;
+box-shadow:0 0 5px rgba(0,0,0,0.3);
+
+font-size:14px;
+
+z-index:1000;
 }
 
 </style>
@@ -31,7 +60,32 @@ width:100%;
 
 <h2>AI Powered FRA Atlas</h2>
 
+<!-- State Filter -->
+
+<select id="stateFilter">
+
+<option value="all">All States</option>
+<option value="mp">Madhya Pradesh</option>
+<option value="odisha">Odisha</option>
+<option value="telangana">Telangana</option>
+
+</select>
+
 <div id="map"></div>
+
+<!-- Legend Panel -->
+
+<div id="legend">
+
+<h3>FRA Claims</h3>
+
+<p><span style="color:green;">●</span> Approved</p>
+<p><span style="color:orange;">●</span> Pending</p>
+<p><span style="color:red;">●</span> Rejected</p>
+
+<p><b>Total Claims: <span id="totalClaims">3</span></b></p>
+
+</div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
